@@ -1,0 +1,90 @@
+.heading {
+  grid-area: header;
+}
+
+.break-label {
+  grid-area: break;
+}
+
+.session-label {
+  grid-area: session;
+}
+
+.timer-label {
+  grid-area: main;
+}
+
+.settings-label {
+  grid-area: footer;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  background: linear-gradient(to right, rgb(58, 0, 218), rgb(56, 3, 143));
+}
+
+.clock-grid {
+  display: grid;
+  grid-template-columns: [col1] auto [col2] 100px [col3] auto [col4] 100px [col5] auto [col6];
+  grid-template-rows: [row1] 15% [row2] 15% [row3] 150px [row4] auto [row5];
+  grid-template-areas: ". header header header ." "break break . session session" ". main main main ." ". . footer . .";
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  min-height: 100vh;
+}
+.clock-grid #heading {
+  font-size: 3rem;
+  font-weight: 1rem;
+  place-self: center;
+}
+.clock-grid #break-label {
+  font-size: 1.5rem;
+  place-self: center;
+}
+.clock-grid #break-label #break-decrement, .clock-grid #break-label #break-length, .clock-grid #break-label #break-increment {
+  width: 33.33%;
+  float: left;
+}
+.clock-grid #break-label #break-decrement, .clock-grid #break-label #break-increment:hover {
+  cursor: pointer;
+}
+.clock-grid #session-label {
+  font-size: 1.5rem;
+  place-self: center;
+}
+.clock-grid #session-label #session-decrement, .clock-grid #session-label #session-length, .clock-grid #session-label #session-increment {
+  width: 33.33%;
+  float: left;
+}
+.clock-grid #session-label #session-decrement, .clock-grid #session-label #session-increment:hover {
+  cursor: pointer;
+}
+.clock-grid #timer-label {
+  display: grid;
+  place-self: center;
+  font-size: 1.5rem;
+  place-self: center;
+  background-color: rgba(73, 73, 243, 0.459);
+  outline: 3px solid;
+  outline-color: rgb(86, 56, 136);
+  padding: 10px 30px 10px 30px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+.clock-grid #timer-label #timer-clock {
+  font-size: 3.5rem;
+}
+.clock-grid #settings-label {
+  font-size: 1.5rem;
+  place-self: center;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

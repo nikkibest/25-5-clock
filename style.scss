@@ -1,0 +1,93 @@
+
+$color1: rgb(58, 0, 218);
+$color2: rgb(56, 3, 143);
+$backgroundColor: rgba(73, 73, 243, 0.459);
+$outlineColor: rgb(86, 56, 136);
+
+@mixin backGroundStuff {
+    place-self: center;
+    background-color: $backgroundColor;
+    outline: 3px solid;
+    outline-color: $outlineColor;
+    padding: 10px 30px 10px 30px;
+    border-radius: 10px;
+}
+
+.heading { grid-area: header; }
+.break-label { grid-area: break; }
+.session-label { grid-area: session; }
+.timer-label { grid-area: main; }
+.settings-label { grid-area: footer; }
+
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background: linear-gradient(to right, $color1, $color2);
+}
+
+.clock-grid  {
+    display: grid;
+    grid-template-columns: [col1] auto [col2] 100px [col3] auto [col4] 100px [col5] auto [col6];
+    grid-template-rows: [row1] 15% [row2] 15% [row3] 150px [row4] auto [row5];
+    grid-template-areas: 
+    ". header header header ."
+    "break break . session session"
+    ". main main main ."
+    ". . footer . .";
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    min-height: 100vh;
+    #heading {
+        font-size: 3rem;
+        font-weight: 1rem;
+        place-self: center;
+    }
+    #break-label {
+        font-size: 1.5rem;
+        place-self: center;
+        #break-decrement,#break-length,#break-increment {
+            width: 33.33%;
+            float:left;
+        }
+        #break-decrement,#break-increment:hover {
+            cursor: pointer;
+        }
+    }
+    #session-label {
+        font-size: 1.5rem;
+        place-self: center;
+        #session-decrement,#session-length,#session-increment {
+            width: 33.33%;
+            float:left;
+        }
+        #session-decrement,#session-increment:hover {
+            cursor: pointer;
+        }
+    }
+    #timer-label {
+        display: grid;
+        place-self: center;
+        font-size: 1.5rem;
+        @include backGroundStuff;
+        margin-bottom: 50px;
+        #timer-clock {
+            font-size: 3.5rem;
+        }
+    }
+    #settings-label {
+        font-size: 1.5rem;
+        place-self: center;
+        cursor: pointer
+    }
+
+}
+
